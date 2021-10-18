@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Enigma-Machine</title>
+        <link href="../css/enigma.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
+        <script src="../js/enigma.js"></script>
+    </head>
+    <body>
+        <button class="button" id="button">Start Simulation</button>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Enigma Machine Simulator</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="rotors">
+                            <input id="rotor3" type="number" value="0" min="0" max="25" style="width: 2em;" readonly>
+                            <input id="rotor2" type="number" value="0" min="0" max="25" style="width: 2em;" readonly>
+                            <input id="rotor1" type="number" value="0" min="0" max="25" style="width: 2em;" readonly>
+                        </div>
+                        <div class="lightboard">
+                            <div id="A">A</div>
+                            <div id="B">B</div>
+                            <div id="C">C</div>
+                            <div id="D">D</div>
+                            <div id="E">E</div>
+                            <div id="F">F</div>
+                            <div id="G">G</div>
+                            <div id="H">H</div>
+                            <div id="I">I</div>
+                            <div id="J">J</div>
+                            <div id="K">K</div>
+                            <div id="L">L</div>
+                            <div id="M">M</div>
+                            <div id="N">n</div>
+                            <div id="O">O</div>
+                            <div id="P">P</div>
+                            <div id="Q">Q</div>
+                            <div id="R">R</div>
+                            <div id="S">S</div>
+                            <div id="T">T</div>
+                            <div id="U">U</div>
+                            <div id="V">V</div>
+                            <div id="W">W</div>
+                            <div id="X">X</div>
+                            <div id="Y">Y</div>
+                            <div id="Z">Z</div>
+                        </div>
+                        <div class="keyboard">
+                            <button class="A" onclick="EnigmaRun('A')">A</button>
+                            <button class="B" onclick="EnigmaRun('B')">B</button>
+                            <button class="C" onclick="EnigmaRun('C')">C</button>
+                            <button class="D" onclick="EnigmaRun('D')">D</button>
+                            <button class="E" onclick="EnigmaRun('E')">E</button>
+                            <button class="F" onclick="EnigmaRun('F')">F</button>
+                            <button class="G" onclick="EnigmaRun('G')">G</button>
+                            <button class="H" onclick="EnigmaRun('H')">H</button>
+                            <button class="I" onclick="EnigmaRun('I')">I</button>
+                            <button class="J" onclick="EnigmaRun('J')">J</button>
+                            <button class="K" onclick="EnigmaRun('K')">K</button>
+                            <button class="L" onclick="EnigmaRun('L')">L</button>
+                            <button class="M" onclick="EnigmaRun('M')">M</button>
+                            <button class="N" onclick="EnigmaRun('N')">n</button>
+                            <button class="O" onclick="EnigmaRun('O')">O</button>
+                            <button class="P" onclick="EnigmaRun('P')">P</button>
+                            <button class="Q" onclick="EnigmaRun('Q')">Q</button>
+                            <button class="R" onclick="EnigmaRun('R')">R</button>
+                            <button class="S" onclick="EnigmaRun('S')">S</button>
+                            <button class="T" onclick="EnigmaRun('T')">T</button>
+                            <button class="U" onclick="EnigmaRun('U')">U</button>
+                            <button class="V" onclick="EnigmaRun('V')">V</button>
+                            <button class="W" onclick="EnigmaRun('W')">W</button>
+                            <button class="X" onclick="EnigmaRun('X')">X</button>
+                            <button class="Y" onclick="EnigmaRun('Y')">Y</button>
+                            <button class="Z" onclick="EnigmaRun('Z')">Z</button>
+                        </div>
+                        <div class="messages">
+                            <textarea class="message" id="message" placeholder="MESSAGE" rows="12" cols="20" readonly></textarea>
+                            <textarea class="code" id="code" placeholder="CODED MESSAGE" rows="12" cols="20" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <h3>For 100% compatibility run in a browser other then Internet Explorer</h3>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Summary')" id="defaultOpen">Summary</button>
+            <button class="tablinks" onclick="openTab(event, 'Electronics')">Electrical pathway</button>
+            <button class="tablinks" onclick="openTab(event, 'Rotors')">Rotors</button>
+            <button class="tablinks" onclick="openTab(event, 'Plugboard')">Plugboard</button>
+            <button class="tablinks" onclick="openTab(event, 'Video')">Video Explenation</button>
+        </div>
+        <div id="Summary" class="tabcontent">
+            <h3>Summary</h3>
+            <p>The Enigma machine is an encryption device developed and used in the early- to mid-20th century to protect commercial, diplomatic and military communication. It was employed extensively by Nazi Germany during World War II, in all branches of the German military. Enigma has an electromechanical rotor mechanism that scrambles the 26 letters of the alphabet. In typical use, one person enters text on the Enigma's keyboard and another person writes down which of 26 lights above the keyboard lights up at each key press. If plain text is entered, the lit-up letters are the encoded ciphertext. Entering ciphertext transforms it back into readable plaintext. The rotor mechanism changes the electrical connections between the keys and the lights with each keypress. The security of the system depends on Enigma machine settings that were changed daily, based on secret key lists distributed in advance, and on other settings that change for each message. The receiving station has to know and use the exact settings employed by the transmitting station to successfully decrypt a message. As used in practice, the Enigma encryption was broken from 1932 by cryptanalytic attacks from the Polish Cipher Bureau, which passed its techniques to their French and British allies in 1939. Subsequently, a dedicated decryption centre was established by the United Kingdom at Bletchley Park as part of the Ultra program for the rest of the war. While Germany introduced a series of improvements to Enigma, and these hampered decryption efforts to varying degrees, they did not ultimately prevent Britain and its allies from exploiting Enigma-encoded messages as a major source of intelligence during the war. Many commentators say the flow of communications intelligence from Ultra's decryption of Enigma, Lorenz and other ciphers shortened the war significantly and may even have altered its outcome.</p>
+            <img src="../img/Enigma.jpg">
+        </div>
+        <div id="Electronics" class="tabcontent">
+            <h3>Electrical pathway</h3>
+            <p>The mechanical parts act by forming a varying electrical circuit. When a key is pressed, one or more rotors rotate on the spindle. On the sides of the rotors are a series of electrical contacts that, after rotation, line up with contacts on the other rotors or fixed wiring on either end of the spindle. When the rotors are properly aligned, each key on the keyboard is connected to a unique electrical pathway through the series of contacts and internal wiring. Current, typically from a battery, flows through the pressed key, into the newly configured set of circuits and back out again, ultimately lighting one display lamp, which shows the output letter. For example, when encrypting a message starting ANX..., the operator would first press the A key, and the Z lamp might light, so Z would be the first letter of the ciphertext. The operator would next press N, and then X in the same fashion, and so on. The scrambling action of Enigma's rotors is shown for two consecutive letters with the right-hand rotor moving one position between them. Current flowed from the battery (1) through a depressed bi-directional keyboard switch (2) to the plugboard (3). Next, it passed through the (unused in this instance, so shown closed) plug "A" (3) via the entry wheel (4), through the wiring of the three (Wehrmacht Enigma) or four (Kriegsmarine M4 and Abwehr variants) installed rotors (5), and entered the reflector (6). The reflector returned the current, via an entirely different path, back through the rotors (5) and entry wheel (4), proceeding through plug "S" (7) connected with a cable (8) to plug "D", and another bi-directional switch (9) to light the appropriate lamp. The repeated changes of electrical path through an Enigma scrambler implemented a polyalphabetic substitution cipher that provided Enigma's security. The diagram on the right shows how the electrical pathway changed with each key depression, which caused rotation of at least the right-hand rotor. Current passed into the set of rotors, into and back out of the reflector, and out through the rotors again. The greyed-out lines are other possible paths within each rotor; these are hard-wired from one side of each rotor to the other. The letter A encrypts differently with consecutive key presses, first to G, and then to C. This is because the right-hand rotor has stepped, sending the signal on a completely different route. Eventually other rotors step with a key press.</p> 
+            <img src="../img/electronics.png">
+        </div>
+        <div id="Rotors" class="tabcontent">
+            <h3>Rotors</h3>
+            <p>The rotors (alternatively wheels or drums, Walzen in German) formed the heart of an Enigma machine. Each rotor was a disc approximately 10 cm (3.9 in) in diameter made from Ebonite or Bakelite with 26 brass, spring-loaded, electrical contact pins arranged in a circle on one face, with the other face housing 26 corresponding electrical contacts in the form of circular plates. The pins and contacts represented the alphabet — typically the 26 letters A–Z, as will be assumed for the rest of this description. When the rotors were mounted side-by-side on the spindle, the pins of one rotor rested against the plate contacts of the neighbouring rotor, forming an electrical connection. Inside the body of the rotor, 26 wires connected each pin on one side to a contact on the other in a complex pattern. Most of the rotors were identified by Roman numerals, and each issued copy of rotor I was wired identically to all others. The same was true for the special thin beta and gamma rotors used in the M4 naval variant. By itself, a rotor performs only a very simple type of encryption, a simple substitution cipher. For example, the pin corresponding to the letter E might be wired to the contact for letter T on the opposite face, and so on. Enigma's security came from using several rotors in series (usually three or four) and the regular stepping movement of the rotors, thus implementing a polyalphabetic substitution cipher. When placed in an Enigma, each rotor can be set to one of 26 possible positions. When inserted, it can be turned by hand using the grooved finger-wheel, which protrudes from the internal Enigma cover when closed. So that the operator can know the rotor's position, each had an alphabet tyre (or letter ring) attached to the outside of the rotor disc, with 26 characters (typically letters); one of these could be seen through the window, thus indicating the rotational position of the rotor. In early models, the alphabet ring was fixed to the rotor disc. A later improvement was the ability to adjust the alphabet ring relative to the rotor disc. The position of the ring was known as the Ringstellung ("ring setting"), and was a part of the initial setting prior to an operating session. In modern terms it was a part of the initialization vector. Each rotor contained one or more notches that controlled rotor stepping. In the military variants, the notches are located on the alphabet ring. The Army and Air Force Enigmas were used with several rotors, initially three. On 15 December 1938, this changed to five, from which three were chosen for a given session. Rotors were marked with Roman numerals to distinguish them: I, II, III, IV and V, all with single notches located at different points on the alphabet ring. This variation was probably intended as a security measure, but ultimately allowed the Polish Clock Method and British Banburismus attacks. The Naval version of the Wehrmacht Enigma had always been issued with more rotors than the other services: At first six, then seven, and finally eight. The additional rotors were marked VI, VII and VIII, all with different wiring, and had two notches, resulting in more frequent turnover. The four-rotor Naval Enigma (M4) machine accommodated an extra rotor in the same space as the three-rotor version. This was accomplished by replacing the original reflector with a thinner one and by adding a thin fourth rotor. That fourth rotor was one of two types, Beta or Gamma, and never stepped, but could be manually set to any of 26 positions. One of the 26 made the machine perform identically to the three-rotor machine. </p>
+            <img src="../img/rotors.png">
+        </div>
+        <div id="Plugboard" class="tabcontent">
+            <h3>Plugboard</h3>
+            <p>The plugboard (Steckerbrett in German) permitted variable wiring that could be reconfigured by the operator (visible on the front panel of Figure 1; some of the patch cords can be seen in the lid). It was introduced on German Army versions in 1930, and was soon adopted by the Reichsmarine (German Navy). The plugboard contributed more cryptographic strength than an extra rotor. Enigma without a plugboard (known as unsteckered Enigma) could be solved relatively straightforwardly using hand methods; these techniques were generally defeated by the plugboard, driving Allied cryptanalysts to develop special machines to solve it. A cable placed onto the plugboard connected letters in pairs; for example, E and Q might be a steckered pair. The effect was to swap those letters before and after the main rotor scrambling unit. For example, when an operator pressed E, the signal was diverted to Q before entering the rotors. Up to 13 steckered pairs might be used at one time, although only 10 were normally used. Current flowed from the keyboard through the plugboard, and proceeded to the entry-rotor or Eintrittswalze. Each letter on the plugboard had two jacks. Inserting a plug disconnected the upper jack (from the keyboard) and the lower jack (to the entry-rotor) of that letter. The plug at the other end of the crosswired cable was inserted into another letter's jacks, thus switching the connections of the two letters.</p>
+            <img src="../img/plugboard.jpg">
+        </div>
+        <div id="Video" class="tabcontent">
+            <h3>Video Explenation</h3>
+            <iframe width="640" height="320" src="https://www.youtube.com/embed/ASfAPOiq_eQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <script src="../js/modal.js"></script>
+        <script src="../js/tabs.js"></script>
+    </body>
+</html>
